@@ -15,10 +15,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Build Windows Release
-      - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
-      - run: cmake --build . --config Release
-      - run: cmake --build . --config Release --target package
+    - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
+    - run: cmake --build . --config Release
+    - run: cmake --build . --config Release --target package
 
     - name: Create Windows Release
       id: create_windows_release
@@ -50,11 +49,10 @@ jobs:
       with:
         submodules: true
 
-    - name: Build Linux Release
-      - run: sudo apt-get update
-      - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
-      - run: cmake --build . --config Release
-      - run: cmake --build . --config Release --target package
+    - run: sudo apt-get update
+    - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
+    - run: cmake --build . --config Release
+    - run: cmake --build . --config Release --target package
 
     - name: Create Linux Release
       id: create_linux_release
