@@ -25,14 +25,6 @@ if (MSVC)
     target_compile_options(bulk PRIVATE
         /W4
     )
-    if(WITH_GOOGLE_TEST)
-        target_compile_options(bulk PRIVATE
-            /MT
-        )
-        target_compile_options(gtest_bulk PRIVATE
-            /MT
-        )
-    endif()
 else ()
     target_compile_options(bulk PRIVATE
         -Wall -Wextra -pedantic -Werror
